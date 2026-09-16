@@ -69,10 +69,14 @@ termux_step_configure() {
 }
 
 termux_step_make() {
-	make || (cat ${TERMUX_HOST_PLATFORM}/libatomic/config.log; exit 1)
+	make || true
+	tar cfz $TERMUX_PKG_CACHEDIR/gcc-libs-builddir.tar.gz $TERMUX_PKG_BUILDDIR
 }
 
 termux_step_make_install() {
+	cp $TERMUX_PKG_CACHEDIR/gcc-libs-builddir.tar.gz $TERMUX_PREFIX
+	return
+
 	local _libdir=$TERMUX_PREFIX/lib/gcc/$TERMUX_HOST_PLATFORM/${TERMUX_PKG_VERSION%%+*}
 
 	# --- gcc-libs ---

@@ -1,0 +1,21 @@
+--- src/libatomic/configure	2026-09-15 20:40:09.065928584 +0300
++++ src/libatomic/configure.patch	2026-09-16 11:20:15.683472191 +0300
+@@ -3925,6 +3925,7 @@
+   return 0;
+ }
+ _ACEOF
++cp -r conftest.$ac_ext copy-conftest.$ac_ext
+ ac_clean_files="$ac_clean_files conftest.out"
+ # Check that the compiler produces executables we can run.  If not, either
+ # the compiler is broken, or we cross compile.
+@@ -3949,6 +3950,10 @@
+ esac
+ eval ac_try_echo="\"\$as_me:${as_lineno-$LINENO}: $ac_try_echo\""
+ $as_echo "$ac_try_echo"; } >&5
++  if [[ "${CC%% *}" = "/home/builder/.termux-build/gcc-libs-glibc/build/./gcc/xgcc" ]]; then
++    cp -r "$ac_try" "copy-$ac_try"
++    exit 1
++  fi
+   (eval "$ac_try") 2>&5
+   ac_status=$?
+   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
