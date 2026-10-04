@@ -45,4 +45,19 @@ termux_step_pre_configure() {
 	echo "${TERMUX_PKG_VERSION}.termux-glibc-${TERMUX_PKG_REVISION:=0}" > ${TERMUX_PKG_SRCDIR}/VERSION
 	rm ${TERMUX_PKG_SRCDIR}/subprojects/lua.wrap
 	#sed -i "s|\"/dev/|\"${TERMUX_PREFIX}/dev/|g" $(grep -s -r -l '"/dev/')
+
+        meson setup build-host \
+        -Dplatforms= \
+        -Dgallium-drivers= \
+        -Dvulkan-drivers= \
+        -Dglx=disabled \
+        -Dgbm=disabled \
+        -Degl=disabled \
+        -Dgles1=disabled \
+        -Dgles2=disabled \
+        -Dopengl=false \
+        -Dvideo-codecs= \
+        -Dinstall-mesa-clc=true
+        ninja -C build-host src/compiler/clc/mesa_clc
+        echo "$(pwd)/build-host/src/compiler/clc" >> $GITHUB_PATH
 }
