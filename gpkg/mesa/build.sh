@@ -24,7 +24,6 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 -D gles2=enabled
 -D glvnd=enabled
 -D glx=dri
--D mesa-clc=system
 -D libunwind=disabled
 -D llvm=enabled
 -D microsoft-clc=disabled
