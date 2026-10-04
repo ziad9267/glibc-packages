@@ -16,7 +16,6 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 -D android-libbacktrace=disabled
 -D b_ndebug=true
 -D egl=enabled
--D gallium-opencl=icd
 -D gallium-drivers=freedreno,swrast,virgl,zink,r600,radeonsi,nouveau,lima,panfrost
 -D gallium-extra-hud=true
 -D gallium-nine=true
