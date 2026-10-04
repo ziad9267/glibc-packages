@@ -18,7 +18,6 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 -D egl=enabled
 -D gallium-drivers=freedreno,virgl,zink,r600,radeonsi,nouveau,lima,panfrost
 -D gallium-extra-hud=true
--D gallium-nine=true
 -D gallium-va=enabled
 -D gallium-vdpau=enabled
 -D gallium-omx=bellagio
